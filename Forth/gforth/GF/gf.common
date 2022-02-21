@@ -1,0 +1,4 @@
+
+# start gforth with short gf name and my small wordset
+
+gforth /home/Main/Scripts/Gf/gf.common.fs

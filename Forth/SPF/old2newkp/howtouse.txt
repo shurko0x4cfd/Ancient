@@ -1,0 +1,4 @@
+
+Drag tileset file in old format and drop on old2newkp icon.
+New tileset file will have name "new.kp"
+It overwrite "new.kp" without confirmation.
