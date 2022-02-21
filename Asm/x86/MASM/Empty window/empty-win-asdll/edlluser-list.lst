@@ -1,0 +1,554 @@
+Microsoft (R) Macro Assembler Version 6.14.8444		    10/11/14 21:23:58
+dlluser.asm						     Page 1 - 1
+
+
+
+				.586p
+				.model flat, stdcall
+
+				includelib      <C:\Root\Data\Creation\Coding\Asm\masm\Win-apps\ss-win\empty-win-asdll\ew.lib>
+
+				includelib	<C:\Root\Soft\Creation\Coding\Asm\masm32\lib\kernel32.lib>
+				includelib	<C:\Root\Soft\Creation\Coding\Asm\masm32\lib\user32.lib>
+
+
+				extrn	DllInit@12:dword
+				; extrn	DllMain@12:dword
+
+				extrn	ExitProcess@4:dword
+				extrn	MessageBoxA@16:dword
+
+				.XLIST
+				.LIST
+
+
+
+
+ 00000000			.data
+
+ 00000000 54 69 74 6C 65	mb_title	db	'Title', 0
+	   00
+ 00000006 44 6C 6C 20 75	mb_msg		db	'Dll user.', 0
+	   73 65 72 2E 00
+
+
+
+
+ 00000000			.code
+ 00000000			_start:
+
+
+ 00000000  6A 00			push	0
+ 00000002  6A 00			push	0
+ 00000004  6A 00			push	0
+ 00000006  E8 00000000 E		call	near ptr DllInit@12
+
+
+ 0000000B  6A 40			push	MB_ICONINFORMATION
+ 0000000D  68 00000000 R		push	offset mb_title
+ 00000012  68 00000006 R		push	offset mb_msg
+ 00000017  6A 00			push	0
+ 00000019  E8 00000000 E		call	near ptr MessageBoxA@16
+
+
+ 0000001E  6A 00			push	0
+ 00000020  E8 00000000 E		call	near ptr ExitProcess@4
+ 00000025  C3				ret
+
+				end _start
+
+
+
+
+
+
+
+Microsoft (R) Macro Assembler Version 6.14.8444		    10/11/14 21:23:58
+dlluser.asm						     Symbols 2 - 1
+
+
+
+
+Structures and Unions:
+
+                N a m e                  Size
+                                         Offset      Type
+
+PAINTSTRUCT  . . . . . . . . . .	 00000030
+  PShdc  . . . . . . . . . . . .	 00000000	 DWord
+  PSfErase . . . . . . . . . . .	 00000004	 DWord
+  PSrcPaint  . . . . . . . . . .	 00000008	 Byte
+  PSfRestore . . . . . . . . . .	 00000018	 DWord
+  PSfIncUpdate . . . . . . . . .	 0000001C	 DWord
+  PSrgbReserved  . . . . . . . .	 00000020	 Byte
+POINT  . . . . . . . . . . . . .	 00000008
+  x  . . . . . . . . . . . . . .	 00000000	 DWord
+  y  . . . . . . . . . . . . . .	 00000004	 DWord
+RECT . . . . . . . . . . . . . .	 00000010
+  rcLeft . . . . . . . . . . . .	 00000000	 DWord
+  rcTop  . . . . . . . . . . . .	 00000004	 DWord
+  rcRight  . . . . . . . . . . .	 00000008	 DWord
+  rcBottom . . . . . . . . . . .	 0000000C	 DWord
+SECURITY_ATTRIBUTES  . . . . . .	 0000000C
+  nLength  . . . . . . . . . . .	 00000000	 DWord
+  lpSecurityDescriptor . . . . .	 00000004	 DWord
+  bInheritHandle . . . . . . . .	 00000008	 DWord
+WNDCLASSEX . . . . . . . . . . .	 00000030
+  cbSize . . . . . . . . . . . .	 00000000	 DWord
+  style  . . . . . . . . . . . .	 00000004	 DWord
+  lpfnWndProc  . . . . . . . . .	 00000008	 DWord
+  cbClsExtra . . . . . . . . . .	 0000000C	 DWord
+  cbWndExtra . . . . . . . . . .	 00000010	 DWord
+  hInstance  . . . . . . . . . .	 00000014	 DWord
+  hIcon  . . . . . . . . . . . .	 00000018	 DWord
+  hCursor  . . . . . . . . . . .	 0000001C	 DWord
+  hbrBackground  . . . . . . . .	 00000020	 DWord
+  lpszMenuName . . . . . . . . .	 00000024	 DWord
+  lpszClassName  . . . . . . . .	 00000028	 DWord
+  hIconSm  . . . . . . . . . . .	 0000002C	 DWord
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000010 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000026 Para	  Public  'CODE'	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+ANSI_FIXED_FONT  . . . . . . . .	Number	 0000000Bh   
+ANSI_VAR_FONT  . . . . . . . . .	Number	 0000000Ch   
+BLACKNESS  . . . . . . . . . . .	Number	 00000042h   
+BLACK_BRUSH  . . . . . . . . . .	Number	 00000004h   
+BLACK_PEN  . . . . . . . . . . .	Number	 00000007h   
+CREATE_ALWAYS  . . . . . . . . .	Number	 00000002h   
+CREATE_NEW . . . . . . . . . . .	Number	 00000001h   
+CS_BYTEALIGNCLIENT . . . . . . .	Number	 00001000h   
+CS_BYTEALIGNWINDOW . . . . . . .	Number	 00002000h   
+CS_CLASSDC . . . . . . . . . . .	Number	 00000040h   
+CS_DBLCLKS . . . . . . . . . . .	Number	 00000008h   
+CS_GLOBALCLASS . . . . . . . . .	Number	 00004000h   
+CS_HREDRAW . . . . . . . . . . .	Number	 00000002h   
+CS_KEYCVTWINDOW  . . . . . . . .	Number	 00000004h   
+CS_NOCLOSE . . . . . . . . . . .	Number	 00000200h   
+CS_NOKEYCVT  . . . . . . . . . .	Number	 00000100h   
+CS_OWNDC . . . . . . . . . . . .	Number	 00000020h   
+CS_PARENTDC  . . . . . . . . . .	Number	 00000080h   
+CS_SAVEBITS  . . . . . . . . . .	Number	 00000800h   
+CS_VREDRAW . . . . . . . . . . .	Number	 00000001h   
+CW_USEDEFAULT  . . . . . . . . .	Number	 00008000h   
+DEFAULT_PALETTE  . . . . . . . .	Number	 0000000Fh   
+DEVICE_DEFAULT_FONT  . . . . . .	Number	 0000000Eh   
+DKGRAY_BRUSH . . . . . . . . . .	Number	 00000003h   
+DOT_MARKER . . . . . . . . . . .	Number	 00000009h   
+DSTINVERT  . . . . . . . . . . .	Number	 00550009h   
+DS_3DLOOK  . . . . . . . . . . .	Number	 00000004h   
+DS_ABSALIGN  . . . . . . . . . .	Number	 00000001h   
+DS_CENTERMOUSE . . . . . . . . .	Number	 00001000h   
+DS_CENTER  . . . . . . . . . . .	Number	 00000800h   
+DS_CONTEXTHELP . . . . . . . . .	Number	 00002000h   
+DS_CONTROL . . . . . . . . . . .	Number	 00000400h   
+DS_FIXEDSYS  . . . . . . . . . .	Number	 00000008h   
+DS_LOCALEDIT . . . . . . . . . .	Number	 00000020h   
+DS_MODALFRAME  . . . . . . . . .	Number	 00000080h   
+DS_NOFAILCREATE  . . . . . . . .	Number	 00000010h   
+DS_NOIDLEMSG . . . . . . . . . .	Number	 00000100h   
+DS_SETFONT . . . . . . . . . . .	Number	 00000040h   
+DS_SETFOREGROUND . . . . . . . .	Number	 00000200h   
+DS_SYSMODAL  . . . . . . . . . .	Number	 00000002h   
+DT_BOTTOM  . . . . . . . . . . .	Number	 00000008h   
+DT_CALCRECT  . . . . . . . . . .	Number	 00000400h   
+DT_CENTER  . . . . . . . . . . .	Number	 00000001h   
+DT_EDITCONTROL . . . . . . . . .	Number	 00002000h   
+DT_END_ELLIPSIS  . . . . . . . .	Number	 00008000h   
+DT_EXPANDTABS  . . . . . . . . .	Number	 00000040h   
+DT_EXTERNALLEADING . . . . . . .	Number	 00000200h   
+DT_INTERNAL  . . . . . . . . . .	Number	 00001000h   
+DT_LEFT  . . . . . . . . . . . .	Number	 00000000h   
+DT_MODIFYSTRING  . . . . . . . .	Number	 00010000h   
+DT_NOCLIP  . . . . . . . . . . .	Number	 00000100h   
+DT_NOPREFIX  . . . . . . . . . .	Number	 00000800h   
+DT_PATH_ELLIPSIS . . . . . . . .	Number	 00004000h   
+DT_RIGHT . . . . . . . . . . . .	Number	 00000002h   
+DT_RTLREADING  . . . . . . . . .	Number	 00020000h   
+DT_SINGLELINE  . . . . . . . . .	Number	 00000020h   
+DT_TABSTOP . . . . . . . . . . .	Number	 00000080h   
+DT_TOP . . . . . . . . . . . . .	Number	 00000000h   
+DT_VCENTER . . . . . . . . . . .	Number	 00000004h   
+DT_WORDBREAK . . . . . . . . . .	Number	 00000010h   
+DT_WORD_ELLIPSIS . . . . . . . .	Number	 00040000h   
+DllInit@12 . . . . . . . . . . .	DWord	 00000000 FLAT	External STDCALL
+ES_AUTOHSCROLL . . . . . . . . .	Number	 00000080h   
+ES_AUTOVSCROLL . . . . . . . . .	Number	 00000040h   
+ES_CENTER  . . . . . . . . . . .	Number	 00000001h   
+ES_LEFT  . . . . . . . . . . . .	Number	 00000000h   
+ES_LOWERCASE . . . . . . . . . .	Number	 00000010h   
+ES_MULTILINE . . . . . . . . . .	Number	 00000004h   
+ES_NOHIDESEL . . . . . . . . . .	Number	 00000100h   
+ES_NUMBER  . . . . . . . . . . .	Number	 00002000h   
+ES_OEMCONVERT  . . . . . . . . .	Number	 00000400h   
+ES_PASSWORD  . . . . . . . . . .	Number	 00000020h   
+ES_READONLY  . . . . . . . . . .	Number	 00000800h   
+ES_RIGHT . . . . . . . . . . . .	Number	 00000002h   
+ES_UPPERCASE . . . . . . . . . .	Number	 00000008h   
+ES_WANTRETURN  . . . . . . . . .	Number	 00001000h   
+ExitProcess@4  . . . . . . . . .	DWord	 00000000 FLAT	External STDCALL
+FILE_ATTRIBUTE_ARCHIVE . . . . .	Number	 00000020h   
+FILE_ATTRIBUTE_COMPRESSED  . . .	Number	 00000800h   
+FILE_ATTRIBUTE_DIRECTORY . . . .	Number	 00000010h   
+FILE_ATTRIBUTE_HIDDEN  . . . . .	Number	 00000002h   
+FILE_ATTRIBUTE_NORMAL  . . . . .	Number	 00000080h   
+FILE_ATTRIBUTE_READONLY  . . . .	Number	 00000001h   
+FILE_ATTRIBUTE_SYSTEM  . . . . .	Number	 00000004h   
+FILE_ATTRIBUTE_TEMPORARY . . . .	Number	 00000100h   
+FILE_BEGIN . . . . . . . . . . .	Number	 00000000h   
+FILE_CASE_PRESERVED_NAMES  . . .	Number	 00000002h   
+FILE_CASE_SENSITIVE_SEARCH . . .	Number	 00000001h   
+FILE_CURRENT . . . . . . . . . .	Number	 00000001h   
+FILE_END . . . . . . . . . . . .	Number	 00000002h   
+FILE_FILE_COMPRESSION  . . . . .	Number	 00000010h   
+FILE_FLAG_BACKUP_SEMANTICS . . .	Number	 02000000h   
+FILE_FLAG_DELETE_ON_CLOSE  . . .	Number	 04000000h   
+FILE_FLAG_NO_BUFFERING . . . . .	Number	 20000000h   
+FILE_FLAG_OVERLAPPED . . . . . .	Number	 40000000h   
+FILE_FLAG_POSIX_SEMANTICS  . . .	Number	 01000000h   
+FILE_FLAG_RANDOM_ACCESS  . . . .	Number	 10000000h   
+FILE_FLAG_SEQUENTIAL_SCAN  . . .	Number	 08000000h   
+FILE_FLAG_WRITE_THROUGH  . . . .	Number	 -80000000h   
+FILE_MAP_ALL_ACCESS  . . . . . .	Number	 000F001Fh   
+FILE_MAP_COPY  . . . . . . . . .	Number	 00000001h   
+FILE_MAP_READ  . . . . . . . . .	Number	 00000004h   
+FILE_MAP_WRITE . . . . . . . . .	Number	 00000002h   
+FILE_PERSISTENT_ACLS . . . . . .	Number	 00000008h   
+FILE_SHARE_READ  . . . . . . . .	Number	 00000001h   
+FILE_SHARE_WRITE . . . . . . . .	Number	 00000002h   
+FILE_UNICODE_ON_DISK . . . . . .	Number	 00000004h   
+FILE_VOLUME_IS_COMPRESSED  . . .	Number	 00008000h   
+FORMAT_MESSAGE_ALLOCATE_BUFFER .	Number	 00000100h   
+FORMAT_MESSAGE_ARGUMENT_ARRAY  .	Number	 00002000h   
+FORMAT_MESSAGE_FROM_HMODULE  . .	Number	 00000800h   
+FORMAT_MESSAGE_FROM_STRING . . .	Number	 00000400h   
+FORMAT_MESSAGE_FROM_SYSTEM . . .	Number	 00001000h   
+FORMAT_MESSAGE_IGNORE_INSERTS  .	Number	 00000200h   
+FORMAT_MESSAGE_MAX_WIDTH_MASK  .	Number	 000000FFh   
+FS_CASE_IS_PRESERVED . . . . . .	Number	 00000002h   
+FS_CASE_SENSITIVE  . . . . . . .	Number	 00000001h   
+FS_FILE_COMPRESSION  . . . . . .	Number	 00000010h   
+FS_PERSISTENT_ACLS . . . . . . .	Number	 00000008h   
+FS_UNICODE_STORED_ON_DISK  . . .	Number	 00000004h   
+FS_VOL_IS_COMPRESSED . . . . . .	Number	 00008000h   
+GENERIC_READ . . . . . . . . . .	Number	 -80000000h   
+GENERIC_WRITE  . . . . . . . . .	Number	 40000000h   
+GRAY_BRUSH . . . . . . . . . . .	Number	 00000002h   
+HANDLE . . . . . . . . . . . . .	Text   	 dd
+HOLLOW_BRUSH . . . . . . . . . .	Number	 00000005h   
+HWiND  . . . . . . . . . . . . .	Text   	 dd
+IDABORT  . . . . . . . . . . . .	Number	 00000003h   
+IDCANCEL . . . . . . . . . . . .	Number	 00000002h   
+IDCLOSE  . . . . . . . . . . . .	Number	 00000008h   
+IDC_ARROW  . . . . . . . . . . .	Number	 00007F00h   
+IDC_CROSS  . . . . . . . . . . .	Number	 00007F03h   
+IDC_IBEAM  . . . . . . . . . . .	Number	 00007F01h   
+IDC_ICON . . . . . . . . . . . .	Number	 00007F81h   
+IDC_SIZENESW . . . . . . . . . .	Number	 00007F83h   
+IDC_SIZENS . . . . . . . . . . .	Number	 00007F85h   
+IDC_SIZENWSE . . . . . . . . . .	Number	 00007F82h   
+IDC_SIZEWE . . . . . . . . . . .	Number	 00007F84h   
+IDC_SIZE . . . . . . . . . . . .	Number	 00007F80h   
+IDC_UPARROW  . . . . . . . . . .	Number	 00007F04h   
+IDC_WAIT . . . . . . . . . . . .	Number	 00007F02h   
+IDHELP . . . . . . . . . . . . .	Number	 00000009h   
+IDIGNORE . . . . . . . . . . . .	Number	 00000005h   
+IDI_APPLICATION  . . . . . . . .	Number	 00007F00h   
+IDI_ASTERISK . . . . . . . . . .	Number	 00007F04h   
+IDI_EXCLAMATION  . . . . . . . .	Number	 00007F03h   
+IDI_HAND . . . . . . . . . . . .	Number	 00007F01h   
+IDI_QUESTION . . . . . . . . . .	Number	 00007F02h   
+IDNO . . . . . . . . . . . . . .	Number	 00000007h   
+IDOK . . . . . . . . . . . . . .	Number	 00000001h   
+IDRETRY  . . . . . . . . . . . .	Number	 00000004h   
+IDYES  . . . . . . . . . . . . .	Number	 00000006h   
+LPBYTE . . . . . . . . . . . . .	Text   	 dd
+LPTSTR . . . . . . . . . . . . .	Text   	 dd
+LTGRAY_BRUSH . . . . . . . . . .	Number	 00000001h   
+MB_ABORTRETRYIGNORE  . . . . . .	Number	 00000002h   
+MB_APPLMODAL . . . . . . . . . .	Number	 00000000h   
+MB_DEFBUTTON1  . . . . . . . . .	Number	 00000000h   
+MB_DEFBUTTON2  . . . . . . . . .	Number	 00000100h   
+MB_DEFBUTTON3  . . . . . . . . .	Number	 00000200h   
+MB_ICONASTERISK  . . . . . . . .	Number	 00000040h   
+MB_ICONEXCLAMATION . . . . . . .	Number	 00000030h   
+MB_ICONHAND  . . . . . . . . . .	Number	 00000010h   
+MB_ICONINFORMATION . . . . . . .	Number	 00000040h   
+MB_ICONQUESTION  . . . . . . . .	Number	 00000020h   
+MB_NOFOCUS . . . . . . . . . . .	Number	 00008000h   
+MB_OKCANCEL  . . . . . . . . . .	Number	 00000001h   
+MB_OK  . . . . . . . . . . . . .	Number	 00000000h   
+MB_RETRYCANCEL . . . . . . . . .	Number	 00000005h   
+MB_SYSTEMMODAL . . . . . . . . .	Number	 00001000h   
+MB_TASKMODAL . . . . . . . . . .	Number	 00002000h   
+MB_YESNOCANCEL . . . . . . . . .	Number	 00000003h   
+MB_YESNO . . . . . . . . . . . .	Number	 00000004h   
+MERGECOPY  . . . . . . . . . . .	Number	 00C000CAh   
+MERGEPAINT . . . . . . . . . . .	Number	 00BB0226h   
+MOVEFILE_COPY_ALLOWED  . . . . .	Number	 00000002h   
+MOVEFILE_DELAY_UNTIL_REBOOT  . .	Number	 00000004h   
+MOVEFILE_REPLACE_EXISTING  . . .	Number	 00000001h   
+MOVEFILE_WRITE_THROUGH . . . . .	Number	 00000008h   
+MessageBoxA@16 . . . . . . . . .	DWord	 00000000 FLAT	External STDCALL
+NOTSRCCOPY . . . . . . . . . . .	Number	 00330008h   
+NOTSRCERASE  . . . . . . . . . .	Number	 001100A6h   
+NULL_BRUSH . . . . . . . . . . .	Number	 00000005h   
+NULL_PEN . . . . . . . . . . . .	Number	 00000008h   
+NULL . . . . . . . . . . . . . .	Number	 00000000h   
+OEM_FIXED_FONT . . . . . . . . .	Number	 0000000Ah   
+OPEN_ALWAYS  . . . . . . . . . .	Number	 00000004h   
+OPEN_EXISTING  . . . . . . . . .	Number	 00000003h   
+PAGE_READONLY  . . . . . . . . .	Number	 00000002h   
+PAGE_READWRITE . . . . . . . . .	Number	 00000004h   
+PAGE_WRITECOPY . . . . . . . . .	Number	 00000008h   
+PATCOPY  . . . . . . . . . . . .	Number	 00F00021h   
+PATINVERT  . . . . . . . . . . .	Number	 005A0049h   
+PATPAINT . . . . . . . . . . . .	Number	 00FB0A09h   
+SECTION_ALL_ACCESS . . . . . . .	Number	 000F001Fh   
+SECTION_EXTEND_SIZE  . . . . . .	Number	 00000010h   
+SECTION_MAP_EXECUTE  . . . . . .	Number	 00000008h   
+SECTION_MAP_READ . . . . . . . .	Number	 00000004h   
+SECTION_MAP_WRITE  . . . . . . .	Number	 00000002h   
+SECTION_QUERY  . . . . . . . . .	Number	 00000001h   
+SM_CXSCREEN  . . . . . . . . . .	Number	 00000000h   
+SM_CYSCREEN  . . . . . . . . . .	Number	 00000001h   
+SND_ALIAS_ID . . . . . . . . . .	Number	 00110000h   
+SND_ALIAS_START  . . . . . . . .	Number	 00000000h   
+SND_ALIAS  . . . . . . . . . . .	Number	 00010000h   
+SND_APPLICATION  . . . . . . . .	Number	 00000080h   
+SND_ASYNC  . . . . . . . . . . .	Number	 00000001h   
+SND_FILENAME . . . . . . . . . .	Number	 00020000h   
+SND_LOOP . . . . . . . . . . . .	Number	 00000008h   
+SND_MEMORY . . . . . . . . . . .	Number	 00000004h   
+SND_NODEFAULT  . . . . . . . . .	Number	 00000002h   
+SND_NOSTOP . . . . . . . . . . .	Number	 00000010h   
+SND_NOWAIT . . . . . . . . . . .	Number	 00002000h   
+SND_PURGE  . . . . . . . . . . .	Number	 00000040h   
+SND_RESOURCE . . . . . . . . . .	Number	 00040004h   
+SND_SYNC . . . . . . . . . . . .	Number	 00000000h   
+SRCAND . . . . . . . . . . . . .	Number	 008800C6h   
+SRCCOPY  . . . . . . . . . . . .	Number	 00CC0020h   
+SRCERASE . . . . . . . . . . . .	Number	 00440328h   
+SRCINVERT  . . . . . . . . . . .	Number	 00660046h   
+SRCPAINT . . . . . . . . . . . .	Number	 00EE0086h   
+STANDARD_RIGHTS_REQUIRED . . . .	Number	 000F0000h   
+SW_HIDE  . . . . . . . . . . . .	Number	 00000000h   
+SW_MAXIMIZE  . . . . . . . . . .	Number	 00000003h   
+SW_MINIMIZE  . . . . . . . . . .	Number	 00000006h   
+SW_NORMAL  . . . . . . . . . . .	Number	 00000001h   
+SW_RESTORE . . . . . . . . . . .	Number	 00000009h   
+SW_SHOWMAXIMIZED . . . . . . . .	Number	 00000003h   
+SW_SHOWMINIMIZED . . . . . . . .	Number	 00000002h   
+SW_SHOWMINNOACTIVE . . . . . . .	Number	 00000007h   
+SW_SHOWNA  . . . . . . . . . . .	Number	 00000008h   
+SW_SHOWNOACTIVATE  . . . . . . .	Number	 00000004h   
+SW_SHOWNORMAL  . . . . . . . . .	Number	 00000001h   
+SW_SHOW  . . . . . . . . . . . .	Number	 00000005h   
+SYSTEM_FIXED_FONT  . . . . . . .	Number	 00000010h   
+SYSTEM_FONT  . . . . . . . . . .	Number	 0000000Dh   
+TCHAR  . . . . . . . . . . . . .	Text   	 db
+TRUNCATE_EXISTING  . . . . . . .	Number	 00000005h   
+UCHAR  . . . . . . . . . . . . .	Text   	 db
+UINT . . . . . . . . . . . . . .	Text   	 dd
+ULONG  . . . . . . . . . . . . .	Text   	 dd
+USHORT . . . . . . . . . . . . .	Text   	 dw
+WHITENESS  . . . . . . . . . . .	Number	 00FF0062h   
+WHITE_BRUSH  . . . . . . . . . .	Number	 00000000h   
+WHITE_PEN  . . . . . . . . . . .	Number	 00000006h   
+WM_ACTIVATEAPP . . . . . . . . .	Number	 0000001Ch   
+WM_ACTIVATE  . . . . . . . . . .	Number	 00000006h   
+WM_ASKCBFORMATNAME . . . . . . .	Number	 0000030Ch   
+WM_CANCELMODE  . . . . . . . . .	Number	 0000001Fh   
+WM_CHANGECBCHAIN . . . . . . . .	Number	 0000030Dh   
+WM_CHARTOITEM  . . . . . . . . .	Number	 0000002Fh   
+WM_CHAR  . . . . . . . . . . . .	Number	 00000102h   
+WM_CHILDACTIVATE . . . . . . . .	Number	 00000022h   
+WM_CLEAR . . . . . . . . . . . .	Number	 00000303h   
+WM_CLOSE . . . . . . . . . . . .	Number	 00000010h   
+WM_COALESCE_FIRST  . . . . . . .	Number	 00000390h   
+WM_COALESCE_LAST . . . . . . . .	Number	 0000039Fh   
+WM_COMMAND . . . . . . . . . . .	Number	 00000111h   
+WM_COMMNOTIFY  . . . . . . . . .	Number	 00000044h   
+WM_COMPACTING  . . . . . . . . .	Number	 00000041h   
+WM_COMPAREITEM . . . . . . . . .	Number	 00000039h   
+WM_COPY  . . . . . . . . . . . .	Number	 00000301h   
+WM_CREATE  . . . . . . . . . . .	Number	 00000001h   
+WM_CTLCOLOR  . . . . . . . . . .	Number	 00000019h   
+WM_CUT . . . . . . . . . . . . .	Number	 00000300h   
+WM_DEADCHAR  . . . . . . . . . .	Number	 00000103h   
+WM_DELETEITEM  . . . . . . . . .	Number	 0000002Dh   
+WM_DESTROYCLIPBOARD  . . . . . .	Number	 00000307h   
+WM_DESTROY . . . . . . . . . . .	Number	 00000002h   
+WM_DEVMODECHANGE . . . . . . . .	Number	 0000001Bh   
+WM_DRAWCLIPBOARD . . . . . . . .	Number	 00000308h   
+WM_DRAWITEM  . . . . . . . . . .	Number	 0000002Bh   
+WM_DROPFILES . . . . . . . . . .	Number	 00000233h   
+WM_ENABLE  . . . . . . . . . . .	Number	 0000000Ah   
+WM_ENDSESSION  . . . . . . . . .	Number	 00000016h   
+WM_ENTERIDLE . . . . . . . . . .	Number	 00000121h   
+WM_ERASEBKGND  . . . . . . . . .	Number	 00000014h   
+WM_FONTCHANGE  . . . . . . . . .	Number	 0000001Dh   
+WM_GETDLGCODE  . . . . . . . . .	Number	 00000087h   
+WM_GETFONT . . . . . . . . . . .	Number	 00000031h   
+WM_GETMINMAXINFO . . . . . . . .	Number	 00000024h   
+WM_GETTEXTLENGTH . . . . . . . .	Number	 0000000Eh   
+WM_GETTEXT . . . . . . . . . . .	Number	 0000000Dh   
+WM_HSCROLLCLIPBOARD  . . . . . .	Number	 0000030Eh   
+WM_HSCROLL . . . . . . . . . . .	Number	 00000114h   
+WM_ICONERASEBKGND  . . . . . . .	Number	 00000027h   
+WM_INITDIALOG  . . . . . . . . .	Number	 00000110h   
+WM_INITMENUPOPUP . . . . . . . .	Number	 00000117h   
+WM_INITMENU  . . . . . . . . . .	Number	 00000116h   
+WM_KEYDOWN . . . . . . . . . . .	Number	 00000100h   
+WM_KEYFIRST  . . . . . . . . . .	Number	 00000100h   
+WM_KEYLAST . . . . . . . . . . .	Number	 00000108h   
+WM_KEYUP . . . . . . . . . . . .	Number	 00000101h   
+WM_KILLFOCUS . . . . . . . . . .	Number	 00000008h   
+WM_LBUTTONDBLCLK . . . . . . . .	Number	 00000203h   
+WM_LBUTTONDOWN . . . . . . . . .	Number	 00000201h   
+WM_LBUTTONUP . . . . . . . . . .	Number	 00000202h   
+WM_MBUTTONDBLCLK . . . . . . . .	Number	 00000209h   
+WM_MBUTTONDOWN . . . . . . . . .	Number	 00000207h   
+WM_MBUTTONUP . . . . . . . . . .	Number	 00000208h   
+WM_MDIACTIVATE . . . . . . . . .	Number	 00000222h   
+WM_MDICASCADE  . . . . . . . . .	Number	 00000227h   
+WM_MDICREATE . . . . . . . . . .	Number	 00000220h   
+WM_MDIDESTROY  . . . . . . . . .	Number	 00000221h   
+WM_MDIGETACTIVE  . . . . . . . .	Number	 00000229h   
+WM_MDIICONARRANGE  . . . . . . .	Number	 00000228h   
+WM_MDIMAXIMIZE . . . . . . . . .	Number	 00000225h   
+WM_MDINEXT . . . . . . . . . . .	Number	 00000224h   
+WM_MDIRESTORE  . . . . . . . . .	Number	 00000223h   
+WM_MDISETMENU  . . . . . . . . .	Number	 00000230h   
+WM_MDITILE . . . . . . . . . . .	Number	 00000226h   
+WM_MEASUREITEM . . . . . . . . .	Number	 0000002Ch   
+WM_MENUCHAR  . . . . . . . . . .	Number	 00000120h   
+WM_MENUSELECT  . . . . . . . . .	Number	 0000011Fh   
+WM_MOUSEACTIVATE . . . . . . . .	Number	 00000021h   
+WM_MOUSEFIRST  . . . . . . . . .	Number	 00000200h   
+WM_MOUSELAST . . . . . . . . . .	Number	 00000209h   
+WM_MOUSEMOVE . . . . . . . . . .	Number	 00000200h   
+WM_MOVE  . . . . . . . . . . . .	Number	 00000003h   
+WM_NCACTIVATE  . . . . . . . . .	Number	 00000086h   
+WM_NCCALCSIZE  . . . . . . . . .	Number	 00000083h   
+WM_NCCREATE  . . . . . . . . . .	Number	 00000081h   
+WM_NCDESTROY . . . . . . . . . .	Number	 00000082h   
+WM_NCHITTEST . . . . . . . . . .	Number	 00000084h   
+WM_NCLBUTTONDBLCLK . . . . . . .	Number	 000000A3h   
+WM_NCLBUTTONDOWN . . . . . . . .	Number	 000000A1h   
+WM_NCLBUTTONUP . . . . . . . . .	Number	 000000A2h   
+WM_NCMBUTTONDBLCLK . . . . . . .	Number	 000000A9h   
+WM_NCMBUTTONDOWN . . . . . . . .	Number	 000000A7h   
+WM_NCMBUTTONUP . . . . . . . . .	Number	 000000A8h   
+WM_NCMOUSEMOVE . . . . . . . . .	Number	 000000A0h   
+WM_NCPAINT . . . . . . . . . . .	Number	 00000085h   
+WM_NCRBUTTONDBLCLK . . . . . . .	Number	 000000A6h   
+WM_NCRBUTTONDOWN . . . . . . . .	Number	 000000A4h   
+WM_NCRBUTTONUP . . . . . . . . .	Number	 000000A5h   
+WM_NEXTDLGCTL  . . . . . . . . .	Number	 00000028h   
+WM_NULL  . . . . . . . . . . . .	Number	 00000000h   
+WM_PAINTCLIPBOARD  . . . . . . .	Number	 00000309h   
+WM_PAINTICON . . . . . . . . . .	Number	 00000026h   
+WM_PAINT . . . . . . . . . . . .	Number	 0000000Fh   
+WM_PALETTECHANGED  . . . . . . .	Number	 00000311h   
+WM_PALETTEISCHANGING . . . . . .	Number	 00000310h   
+WM_PARENTNOTIFY  . . . . . . . .	Number	 00000210h   
+WM_PASTE . . . . . . . . . . . .	Number	 00000302h   
+WM_PENWINFIRST . . . . . . . . .	Number	 00000380h   
+WM_PENWINLAST  . . . . . . . . .	Number	 0000038Fh   
+WM_POWER . . . . . . . . . . . .	Number	 00000048h   
+WM_QUERYDRAGICON . . . . . . . .	Number	 00000037h   
+WM_QUERYENDSESSION . . . . . . .	Number	 00000011h   
+WM_QUERYNEWPALETTE . . . . . . .	Number	 0000030Fh   
+WM_QUERYOPEN . . . . . . . . . .	Number	 00000013h   
+WM_QUEUESYNC . . . . . . . . . .	Number	 00000023h   
+WM_QUIT  . . . . . . . . . . . .	Number	 00000012h   
+WM_RBUTTONDBLCLK . . . . . . . .	Number	 00000206h   
+WM_RBUTTONDOWN . . . . . . . . .	Number	 00000204h   
+WM_RBUTTONUP . . . . . . . . . .	Number	 00000205h   
+WM_RENDERALLFORMATS  . . . . . .	Number	 00000306h   
+WM_RENDERFORMAT  . . . . . . . .	Number	 00000305h   
+WM_SETCURSOR . . . . . . . . . .	Number	 00000020h   
+WM_SETFOCUS  . . . . . . . . . .	Number	 00000007h   
+WM_SETFONT . . . . . . . . . . .	Number	 00000030h   
+WM_SETREDRAW . . . . . . . . . .	Number	 0000000Bh   
+WM_SETTEXT . . . . . . . . . . .	Number	 0000000Ch   
+WM_SHOWWINDOW  . . . . . . . . .	Number	 00000018h   
+WM_SIZECLIPBOARD . . . . . . . .	Number	 0000030Bh   
+WM_SIZE  . . . . . . . . . . . .	Number	 00000005h   
+WM_SPOOLERSTATUS . . . . . . . .	Number	 0000002Ah   
+WM_STATE . . . . . . . . . . . .	Number	 00000000h   
+WM_SYSCHAR . . . . . . . . . . .	Number	 00000106h   
+WM_SYSCOLORCHANGE  . . . . . . .	Number	 00000015h   
+WM_SYSCOMMAND  . . . . . . . . .	Number	 00000112h   
+WM_SYSDEADCHAR . . . . . . . . .	Number	 00000107h   
+WM_SYSKEYDOWN  . . . . . . . . .	Number	 00000104h   
+WM_SYSKEYUP  . . . . . . . . . .	Number	 00000105h   
+WM_SYSTEMERROR . . . . . . . . .	Number	 00000017h   
+WM_TIMECHANGE  . . . . . . . . .	Number	 0000001Eh   
+WM_TIMER . . . . . . . . . . . .	Number	 00000113h   
+WM_UNDO  . . . . . . . . . . . .	Number	 00000304h   
+WM_USER  . . . . . . . . . . . .	Number	 00000400h   
+WM_VKEYTOITEM  . . . . . . . . .	Number	 0000002Eh   
+WM_VSCROLLCLIPBOARD  . . . . . .	Number	 0000030Ah   
+WM_VSCROLL . . . . . . . . . . .	Number	 00000115h   
+WM_WINDOWPOSCHANGED  . . . . . .	Number	 00000047h   
+WM_WINDOWPOSCHANGING . . . . . .	Number	 00000046h   
+WM_WININICHANGE  . . . . . . . .	Number	 0000001Ah   
+WNDPROC  . . . . . . . . . . . .	Text   	 dd
+WS_BORDER  . . . . . . . . . . .	Number	 00800000h   
+WS_CAPTION . . . . . . . . . . .	Number	 00C00000h   
+WS_CHILDWINDOW . . . . . . . . .	Number	 40000000h   
+WS_CHILD . . . . . . . . . . . .	Number	 40000000h   
+WS_CLIPCHILDREN  . . . . . . . .	Number	 02000000h   
+WS_CLIPSIBLINGS  . . . . . . . .	Number	 04000000h   
+WS_DISABLED  . . . . . . . . . .	Number	 08000000h   
+WS_DLGFRAME  . . . . . . . . . .	Number	 00400000h   
+WS_GROUP . . . . . . . . . . . .	Number	 00020000h   
+WS_HREDRAW . . . . . . . . . . .	Number	 00020000h   
+WS_HSCROLL . . . . . . . . . . .	Number	 00100000h   
+WS_ICONICPOPUP . . . . . . . . .	Number	 C0000000h   
+WS_ICONIC  . . . . . . . . . . .	Number	 20000000h   
+WS_MAXIMIZEBOX . . . . . . . . .	Number	 00010000h   
+WS_MAXIMIZE  . . . . . . . . . .	Number	 01000000h   
+WS_MINIMIZEBOX . . . . . . . . .	Number	 00020000h   
+WS_MINIMIZE  . . . . . . . . . .	Number	 20000000h   
+WS_OVERLAPPEDWINDOW  . . . . . .	Number	 00CF0000h   
+WS_OVERLAPPED  . . . . . . . . .	Number	 00000000h   
+WS_POPUPWINDOW . . . . . . . . .	Number	 80880000h   
+WS_POPUP . . . . . . . . . . . .	Number	 -80000000h   
+WS_SIZEBOX . . . . . . . . . . .	Number	 00040000h   
+WS_SYSMENU . . . . . . . . . . .	Number	 00080000h   
+WS_TABSTOP . . . . . . . . . . .	Number	 00010000h   
+WS_THICKFRAME  . . . . . . . . .	Number	 00040000h   
+WS_TILEDWINDOW . . . . . . . . .	Number	 00CF0000h   
+WS_TILED . . . . . . . . . . . .	Number	 00000000h   
+WS_VISIBLE . . . . . . . . . . .	Number	 10000000h   
+WS_VREDRAW . . . . . . . . . . .	Number	 00010000h   
+WS_VSCROLL . . . . . . . . . . .	Number	 00200000h   
+_start . . . . . . . . . . . . .	L Near	 00000000 _TEXT	Public STDCALL
+mb_msg . . . . . . . . . . . . .	Byte	 00000006 _DATA	
+mb_title . . . . . . . . . . . .	Byte	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors
