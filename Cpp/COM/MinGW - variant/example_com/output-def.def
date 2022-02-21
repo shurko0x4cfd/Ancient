@@ -1,0 +1,5 @@
+LIBRARY "com-server.dll" BASE=0x69500000
+EXPORTS
+    CreateExampleClassObject @1
+    DllCanUnloadNow @2 PRIVATE
+    DllGetClassObject @3 PRIVATE

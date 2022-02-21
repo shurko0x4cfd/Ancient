@@ -1,0 +1,1 @@
+HKEY_CLASSES_ROOT\CLSID\{38180855-728F-4262-975C-2F57527818F0}\LocalServer32 = C:\Root\Data\Creation\Coding\cpp\MinGW\example_com\com-local-server.exe

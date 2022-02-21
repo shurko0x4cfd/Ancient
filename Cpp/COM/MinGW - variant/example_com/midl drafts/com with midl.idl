@@ -1,0 +1,45 @@
+
+import "oaidl.idl" ;
+
+
+
+
+// cpp_quote( "#include StdAfx.h ;" )
+
+
+
+
+[ object, uuid(928090AB-BC6D-4441-AA9E-0F6A46E7BBF0), helpstring("Example help string") ]
+interface IExampleClass : IUnknown {
+
+	HRESULT ExampleMethod () ;
+};
+
+
+[ uuid(3FF74066-4AE4-4df2-8ECD-F4EBC0C7D9CA), version(1.0), helpstring("Example help string")]
+library ExampleClassTlb {
+
+importlib("stdole32.tlb");
+
+
+		[ uuid(38180855-728F-4262-975C-2F57527818F0), helpstring("Example help string") ]
+		coclass ExampleClass {
+
+[default]	interface IExampleClass ;
+		};
+};
+
+
+
+
+// cpp_quote("// Example C/C++ text.")
+
+// [ uuid(), v1_enum, helpstring("Example help string") ]
+// typedef enum EXAMPLE_ENUM {
+// FIRST	= 0,
+// SECOND	= 1	// No comma?
+// } EXAMPLE_ENUM ;
+
+// [ object, uuid(), helpstring("Example help string") ]
+// interface Asdf : IUnknown {
+// };

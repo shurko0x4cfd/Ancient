@@ -1,0 +1,76 @@
+
+
+
+
+
+// --------------------------- CLSID_ExampleClass ---------------------------
+
+// {38180855-728F-4262-975C-2F57527818F0}
+DEFINE_GUID(<<name>>, 
+0x38180855, 0x728f, 0x4262, 0x97, 0x5c, 0x2f, 0x57, 0x52, 0x78, 0x18, 0xf0);
+
+// {38180855-728F-4262-975C-2F57527818F0}
+static const GUID <<name>> = 
+{ 0x38180855, 0x728f, 0x4262, { 0x97, 0x5c, 0x2f, 0x57, 0x52, 0x78, 0x18, 0xf0 } };
+
+// {38180855-728F-4262-975C-2F57527818F0}
+IMPLEMENT_OLECREATE(<<class>>, <<external_name>>, 
+0x38180855, 0x728f, 0x4262, 0x97, 0x5c, 0x2f, 0x57, 0x52, 0x78, 0x18, 0xf0);
+
+// --------------------------- CLSID_ExampleClass ---------------------------
+
+
+
+
+// --------------------------- IID_IExampleClass ---------------------------
+
+// {928090AB-BC6D-4441-AA9E-0F6A46E7BBF0}
+static const GUID <<name>> = 
+{ 0x928090ab, 0xbc6d, 0x4441, { 0xaa, 0x9e, 0xf, 0x6a, 0x46, 0xe7, 0xbb, 0xf0 } };
+
+// {928090AB-BC6D-4441-AA9E-0F6A46E7BBF0}
+DEFINE_GUID(IID_IExampleClass, 
+0x928090ab, 0xbc6d, 0x4441, 0xaa, 0x9e, 0xf, 0x6a, 0x46, 0xe7, 0xbb, 0xf0);
+
+// {928090AB-BC6D-4441-AA9E-0F6A46E7BBF0}
+IMPLEMENT_OLECREATE(<<class>>, <<external_name>>, 
+0x928090ab, 0xbc6d, 0x4441, 0xaa, 0x9e, 0xf, 0x6a, 0x46, 0xe7, 0xbb, 0xf0);
+
+// --------------------------- IID_IExampleClass ---------------------------
+
+
+
+
+// --------------------------- TYPELIB ---------------------------
+
+// {3FF74066-4AE4-4df2-8ECD-F4EBC0C7D9CA}
+static const GUID <<name>> = 
+{ 0x3ff74066, 0x4ae4, 0x4df2, { 0x8e, 0xcd, 0xf4, 0xeb, 0xc0, 0xc7, 0xd9, 0xca } };
+
+// {3FF74066-4AE4-4df2-8ECD-F4EBC0C7D9CA}
+DEFINE_GUID(<<name>>, 
+0x3ff74066, 0x4ae4, 0x4df2, 0x8e, 0xcd, 0xf4, 0xeb, 0xc0, 0xc7, 0xd9, 0xca);
+
+// {3FF74066-4AE4-4df2-8ECD-F4EBC0C7D9CA}
+IMPLEMENT_OLECREATE(<<class>>, <<external_name>>, 
+0x3ff74066, 0x4ae4, 0x4df2, 0x8e, 0xcd, 0xf4, 0xeb, 0xc0, 0xc7, 0xd9, 0xca);
+
+// --------------------------- TYPELIB ---------------------------
+
+
+
+
+// --------------------------- CLSID for ProxyStub DLL ---------------------------
+
+{0db5673b-7e79-11e5-b13b-5404a642c873}
+
+// --------------------------- CLSID for ProxyStub DLL ---------------------------
+
+
+
+
+
+
+
+
+

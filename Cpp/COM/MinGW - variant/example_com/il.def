@@ -1,0 +1,4 @@
+LIBRARY "com-server.dll"
+EXPORTS
+	DllGetClassObject	PRIVATE
+	DllCanUnloadNow		PRIVATE

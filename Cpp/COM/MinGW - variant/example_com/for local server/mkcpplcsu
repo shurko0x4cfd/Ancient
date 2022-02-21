@@ -1,0 +1,6 @@
+
+cd /c/Root/Data/Creation/Coding/cpp/MinGW/example_com/
+
+mingw32-g++ -c com-user-ls.cpp
+
+mingw32-g++ -o com-user-ls.exe com-user-ls.o -L. -lole32 -luuid

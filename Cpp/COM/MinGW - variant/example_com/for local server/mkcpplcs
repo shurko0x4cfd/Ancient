@@ -1,0 +1,12 @@
+
+cd /c/Root/Data/Creation/Coding/cpp/MinGW/example_com/
+
+mingw32-g++ -c com-local-server.cpp
+
+mingw32-g++ -o com-local-server.exe com-local-server.o -lole32 -luuid -loleaut32 -Wl,--out-implib,libcom-local-server.a -Xlinker --output-def output-def-local.def -Xlinker --enable-stdcall-fixup
+
+# -Xlinker
+# --export-all-symbols
+# -shared
+# --disable-stdcall-fixup
+# --kill-at 
