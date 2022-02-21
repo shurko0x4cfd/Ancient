@@ -1,0 +1,3 @@
+
+gcc -c begin-end.c && gcc -o begin-end begin-end.o -lGLU -lGL -lXext -lX11 -lm
+

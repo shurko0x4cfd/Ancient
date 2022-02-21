@@ -1,0 +1,3 @@
+
+gcc -c v-arrays.c && gcc -o v-arrays v-arrays.o -lGLU -lGL -lXext -lX11 -lm
+
