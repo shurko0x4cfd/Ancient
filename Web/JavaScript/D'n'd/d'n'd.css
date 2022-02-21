@@ -1,0 +1,47 @@
+
+/* (c) 2021, Alexandr Stadnichenko */
+
+
+* { 
+    margin:         0px;
+    padding:        0px;
+    border-width:   0px; }
+
+
+#topwrapper {
+    display:    -webkit-box;
+}
+
+
+#leftpane {
+    display:    -webkit-box;
+    
+    padding: 40px;
+    width: 400px;
+
+    background-color: lightgrey;
+}
+
+
+#rightpane {
+    display:    -webkit-box;
+
+    padding: 40px;
+    width: 250px;
+    height: 250px;
+}
+
+
+#dndstuff {
+    display: block;
+    padding: 20px;
+    width: 150px;
+    height: 150px;
+
+    background-color: red;
+    color: yellow;
+    text-align: center; }
+
+
+
+
